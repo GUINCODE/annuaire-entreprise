@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: cm_image:1.0
+    container_name: cm_app
+    ports:
+     - 3030:3030
+    networks:
+      - cm_reseau
+    volumes:
+      - cm_volume:/app
+    env_file:
+      - .env
+
+networks:
+  cm_reseau:
+    name: cm_reseau
+
+volumes:
+  cm_volume:
+    name: cm_volume
